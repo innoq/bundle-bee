@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <persistence-unit name="org.bundlebee.examples.bgbatch" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>org.bundlebee.bgbatch.entities.User</class>
+    <class>org.bundlebee.bgbatch.entities.Planet</class>
+    <class>org.bundlebee.bgbatch.entities.System</class>
+    <class>org.bundlebee.bgbatch.entities.UserPlanets</class>
+    <properties>
+      <property name="hibernate.connection.username" value="bundle-bee"/>
+      <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+      <property name="hibernate.connection.password" value="bundlebee"/>
+      <property name="hibernate.connection.url" value="jdbc:mysql://192.168.178.114:3306/bb_browsergame"/>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+    </properties>
+  </persistence-unit>
+</persistence>

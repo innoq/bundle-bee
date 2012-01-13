@@ -1,0 +1,14 @@
+LICENSE for BundleBee ${pom.version}
+
+BundleBee is licensed under Eclipse Public License 1.0 or Apache License 2.0.
+
+Eclipse Public License 1.0:
+    http://www.eclipse.org/legal/epl-v10.html
+
+Apache License 2.0:
+    http://www.apache.org/licenses/LICENSE-2.0.txt
+
+Third party libraries that may be contained in this distribution are licensed according to their specific licenses.
+Some licenses are provided in the licenses folder.
+
+Copyright 2009 innoQ Deutschland GmbH. All rights reserved. http://www.innoq.com/

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="bundlebee" default="run" basedir=".">
+
+	<description>Builds, tests, and runs the project ${ant.project.name} ${version}.</description>
+
+	<!-- where to find the common ant build directory -->
+	<property name="common.dir" value="."/>
+
+	<!--import common targets-->
+	<import file="${common.dir}/common.xml"/>
+
+    <!--build dependent projects, overwrites target in common.xml-->
+	<target name="build">
+
+<!--	
+		jar-dependencies are build by some of the bundles, don't need to do it explicitely
+		<declare_jar_dependency.macro prjpath="../Registry"				name="registry"/>
+		<declare_jar_dependency.macro prjpath="../RemoteServiceCall"	name="remoteservicecall"/>
+-->
+		<declare_bundle_dependency.macro prjpath="../Carrier"		name="carrier"/>
+		<declare_bundle_dependency.macro prjpath="../Manager"		name="manager"/>
+		<declare_bundle_dependency.macro prjpath="../Repository"	name="repository"/>
+		<declare_bundle_dependency.macro prjpath="../Watchdog"		name="watchdog"/>
+		<declare_bundle_dependency.macro prjpath="../Weaver"		name="weaver"/>
+		<declare_bundle_dependency.macro prjpath="../CLI"			name="cli"/>
+		<declare_bundle_dependency.macro prjpath="../TestBundle"	name="testbundle"/>
+		<declare_bundle_dependency.macro prjpath="../Pulsar"		name="pulsar"/>
+		<declare_bundle_dependency.macro prjpath="../Examples/Fractal"	name="fractal"/>
+	</target>
+
+
+	<!--clean, overwrites target in common.xml-->
+	<target name="clean">
+		<ant antfile="../Registry/build.xml"			target="clean" inheritall="false"/>
+		<ant antfile="../RemoteServiceCall/build.xml"	target="clean" inheritall="false"/>
+
+		<ant antfile="../Carrier/build.xml"				target="clean" inheritall="false"/>
+		<ant antfile="../Manager/build.xml"				target="clean" inheritall="false"/>
+		<ant antfile="../Repository/build.xml"			target="clean" inheritall="false"/>
+		<ant antfile="../Watchdog/build.xml"			target="clean" inheritall="false"/>
+		<ant antfile="../Weaver/build.xml"				target="clean" inheritall="false"/>
+		<ant antfile="../CLI/build.xml"					target="clean" inheritall="false"/>
+		<ant antfile="../TestBundle/build.xml"			target="clean" inheritall="false"/>
+		<ant antfile="../Pulsar/build.xml"				target="clean" inheritall="false"/>
+		<ant antfile="../Examples/ExampleFibonacciService/build.xml"	target="clean" inheritall="false"/>
+		<ant antfile="../Examples/ExampleFibonacciClient/build.xml"		target="clean" inheritall="false"/>
+		<ant antfile="../Examples/Fractal/build.xml"	target="clean" inheritall="false"/>
+	</target>
+
+
+	<!--assembly-->
+	<target name="assembly" depends="build" description="creates a binary distribution zip file">
+		<property name="assembly_name" value="BundleBee_assembly_${version}.zip"/>
+		<property name="Assembly.dir" location="../Assembly"/>
+
+		<delete file="${assembly_name}" failonerror="false"/>
+		<zip destfile="${assembly_name}">
+			<zipfileset dir="plugins/" prefix="plugins" includes="*.jar *.ini *.xml"/>
+			<zipfileset dir="${Assembly.dir}/src/main/equinox/licenses" prefix="licenses"/>
+			<zipfileset dir="${Assembly.dir}" includes="*.txt"/>
+			<zipfileset dir="${Assembly.dir}/src/main/equinox" includes="*.sh *.xml *.bat"/>
+		</zip>
+	</target>
+
+</project>

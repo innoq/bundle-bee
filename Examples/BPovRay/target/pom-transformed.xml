@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.bundlebee</groupId>
+        <artifactId>org.bundlebee.examples</artifactId>
+        <version>0.5.4-SNAPSHOT</version>
+    </parent>
+    <groupId>org.bundlebee.examples</groupId>
+    <artifactId>org.bundlebee.examples.bpovray</artifactId>
+    <version>0.5.4-SNAPSHOT</version>
+    <packaging>bundle</packaging>
+    <name>BundleBee Example: BPovRay</name>
+    <description>A Bundle to Render PovRay Images</description>
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.osgi</groupId>
+            <artifactId>org.eclipse.osgi</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Activator>org.bundlebee.bpovray.Activator</Bundle-Activator>
+                        <Export-Package>org.bundlebee.bpovray.*</Export-Package>
+                        <Private-Package />
+                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencyManagement>
+        <dependencies>
+        </dependencies>
+    </dependencyManagement>
+</project>
+
+

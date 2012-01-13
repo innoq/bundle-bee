@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="common" basedir=".">
+	<!--<echo message="importing ${common.dir}/common.xml..."/>-->
+
+	<!--project and common directories-->
+	<dirname property="build.xml.path"		file="${ant.file}"/>
+	<dirname property="project.path"		file="${ant.file}"/>
+	<dirname property="common.xml.path"		file="${ant.file.common}"/>
+
+	<!--standard directory layout for all project-->
+	<property name="java.src.dir"			value="src/main/java"/>
+	<property name="java.test.dir"			value="src/test/java"/>
+	<property name="resources.dir"			value="src/main/resources"/>
+	<property name="build.dir"				value="build"/>
+	<property name="build.classes.dir"		value="${build.dir}/classes"/>
+	<property name="test.classes.dir"		value="${build.dir}/testclasses"/>
+	<property name="test.output.dir"		value="${build.dir}/testoutput"/>
+	<property name="jar.dir"				value="${build.dir}"/>
+	<property name="osgibundle.path"		value="${common.dir}/plugins"/>
+
+	<!--base paths to compiletime/runtime- and development-libraries-->
+	<property name="libbase"				value="${common.dir}/plugins"/> <!--same as osgibundle.path-->
+	<property name="devlibbase"				value="${common.dir}/devlibs"/>
+
+
+	<!--load classpathes of all libraries, depends on ${libbase} and ${devlibbase}-->
+	<property file="${common.dir}/libs.properties"/>
+
+	<!--load common properties-->
+	<property file="${common.dir}/build.properties"/>
+
+
+	<!--Set the javac params to default of not set before-->
+	<property name="javac.source"			value="${default.javac.source}"/>
+	<property name="javac.target"			value="${default.javac.target}"/>
+
+	<!--name of the jar, depends on ${version} which is set in build.properties-->
+	<property name="jar.file"				value="${jar.dir}/${ant.project.name}_${version}.jar"/>
+
+
+	<!--a common classpath for all projects-->
+	<path id="common.classpath.refid">
+		<path	path="${libs.log.classpath}"/>
+		<path	path="${libs.osgi.classpath}"/>
+	</path>
+
+
+	<!--
+	Define the projects compile classpath as a dummy of not set by the project.
+	Library paths can be found in antbuild/libs.properties for reference.
+	-->
+	<path id="project.classpath.refid">
+	</path>
+
+
+	<!--placeholder target, to be defined by the project-->
+	<target name="build_dependencies">
+	</target>
+
+
+	<!--compile-->
+	<target name="compile" depends="build_dependencies">
+		<mkdir dir="${build.classes.dir}"/>
+
+		<javac srcdir="${java.src.dir}" destdir="${build.classes.dir}" debug="true" source="${javac.source}" target="${javac.target}">
+			<classpath>
+				<path refid="project.classpath.refid"/>
+				<path refid="common.classpath.refid"/>
+			</classpath>
+		</javac>
+
+		<!--copy resources (if any)-->
+		<copy todir="${build.classes.dir}">
+			<fileset erroronmissingdir="false" dir="${resources.dir}"/>
+		</copy>
+	</target>
+
+
+	<!--force_jar-->
+	<target name="force_jar" depends="compile">
+		<mkdir dir="${jar.dir}"/>
+		<jar basedir="${build.classes.dir}" compress="true" index="true" jarfile="${jar.file}"/>
+	</target>
+
+
+	<!--jar-->
+	<target name="jar" depends="check.is_bundle" unless="is_osgibundle" description="create a bundle if osgibundle.properties is not present">
+		<antcall target="force_jar"/>
+	</target>
+
+
+	<!--test-->
+	<target name="test" depends="compile">
+
+		<!--
+			test classes are compiled to another directory, so they don't show
+			up in some jar later.
+		-->
+		<mkdir dir="${test.classes.dir}"/>
+
+		<!--compile tests-->
+		<javac source="${javac.source}" debug="true" deprecation="true" optimize="false" destdir="${test.classes.dir}" srcdir="${java.test.dir}">
+			<classpath>
+				<pathelement path="${build.classes.dir}"/>
+				<path refid="project.classpath.refid"/>
+				<path refid="common.classpath.refid"/>
+				<pathelement path="${libs.junit_4.classpath}"/>
+			</classpath>
+        </javac>
+
+
+		<!--<mkdir dir="${test.output.dir}"/>   only needed if <formatter type="xml"/>-->
+		<junit printsummary="yes" haltonfailure="no">
+
+			<!-- same classpath as above + testclasses.path -->
+			<classpath>
+				<pathelement path="${build.classes.dir}"/>
+				<pathelement path="${test.classes.dir}"/>
+				<path refid="project.classpath.refid"/>
+				<path refid="common.classpath.refid"/>
+				<path path="${libs.junit_4.classpath}"/>
+			</classpath>
+
+			<batchtest fork="yes" todir="${test.output.dir}">
+				<fileset dir="${java.test.dir}">
+					<include name="**/*Test.java"/>
+				</fileset>
+                <formatter type="brief" usefile="false"/>
+				<!--<formatter type="xml"/>-->
+			</batchtest>
+		</junit>
+	</target>
+
+
+	<!--clean-->
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>
+
+
+	<!--macro that can dump a variable from its name-->
+	<macrodef name="dumpvariable.macro">
+		<attribute name="var"/>
+		<sequential>
+			<echo message="@{var}: ${@{var}}"/>
+		</sequential>
+	</macrodef>
+
+
+	<!--dump the environment-->
+	<target name="dump">
+		<dumpvariable.macro var="ant.project.name"/>
+		
+		<dumpvariable.macro var="basedir"/>
+		<dumpvariable.macro var="common.dir"/>
+
+		<dumpvariable.macro var="build.xml.path"/>
+		<dumpvariable.macro var="common.xml.path"/>
+
+		<dumpvariable.macro var="java.src.dir"/>
+		<dumpvariable.macro var="java.test.dir"/>
+		<dumpvariable.macro var="build.dir"/>
+		<dumpvariable.macro var="build.classes.dir"/>
+		<dumpvariable.macro var="test.classes.dir"/>
+		<dumpvariable.macro var="test.output.dir"/>
+		<dumpvariable.macro var="jar.dir"/>
+
+		<!--Default javac params-->
+		<dumpvariable.macro var="default.javac.source"/>
+		<dumpvariable.macro var="default.javac.target"/>
+
+
+		<!--Set the javac params to default of not set before-->
+		<dumpvariable.macro var="javac.source"/>
+		<dumpvariable.macro var="javac.target"/>
+
+
+		<!--base paths to compiletime/runtime- and development-libraries-->
+		<dumpvariable.macro var="libbase"/>
+		<dumpvariable.macro var="devlibbase"/>
+
+		<dumpvariable.macro var="version"/>
+		
+		<dumpvariable.macro var="libs.log.classpath"/>
+		<dumpvariable.macro var="libs.javassist.classpath"/>
+		<dumpvariable.macro var="libs.osgi.classpath"/>
+		<dumpvariable.macro var="libs.junit_4.classpath"/>
+	</target>
+
+
+	<!--
+	Macro declaring a dependency to a jar project.
+	Defines a property @{jar}.artifact pointing to @{jar}_${version}.jar in the build directory.
+	-->
+	<macrodef name="declare_jar_dependency.macro" description="declare a dependency to a jar project">
+		<attribute name="prjpath"/>					<!--prjpath="../Registry"-->
+		<attribute name="jar"/>						<!--jar="registry"-->
+
+		<sequential>
+			<ant antfile="@{prjpath}/build.xml" target="jar" inheritall="false"/>
+			<property name="@{jar}.artifact" value="@{prjpath}/${build.dir}/@{jar}_${version}.jar"/>
+		</sequential>
+	</macrodef>
+
+
+	<!--
+	Macro declaring a dependency to a bundle project.
+	Defines a property @{name}.artifact pointing to bundles jar in plugins.
+	-->
+	<macrodef name="declare_bundle_dependency.macro" description="declare a dependency to a bundle project">
+		<attribute name="prjpath"/>					<!--prjpath="../Repository"-->
+		<attribute name="name"/>					<!--name="repository"-->
+
+		<sequential>
+			<ant antfile="@{prjpath}/build.xml" target="bundle" inheritall="false"/>
+
+			<!--read the bundle properties-->
+			<property file="@{prjpath}/osgibundle.properties" prefix="osgibundle.@{name}"/>
+			<property name="@{name}.artifact" value="${osgibundle.path}/${osgibundle.@{name}.bundleSymbolicName}_${osgibundle.@{name}.bundleVersion}.jar"/>
+		</sequential>
+	</macrodef>
+
+
+
+	<!--force_bundle-->
+	<target name="force_bundle" depends="compile">
+
+		<!--define task that can create bundles-->
+		<taskdef name="bundle"
+			classname="net.luminis.build.plugin.bnd.BuildTask"
+			classpath="${devlibbase}/net.luminis.build.plugin-0.2.0.jar" />
+
+		<!--load the bundles properties-->
+		<property file="${project.path}/osgibundle.properties" prefix="osgibundle"/>
+
+		<!--set some default properties if not defined in osgibundle.properties-->
+		<property name="osgibundle.exportPackage"		value="*"/>
+		<property name="osgibundle.importPackage"		value="*"/>
+		<property name="osgibundle.privatePackage"		value=""/>
+		<property name="osgibundle.ignorePackage"		value=""/>
+		<property name="osgibundle.fragmentHost"		value=""/>
+		<property name="osgibundle.includeResource"		value=""/>
+		<property name="osgibundle.bundleActivator"		value=""/>
+		<property name="osgibundle.bundleSymbolicName"	value="${ant.project.name}"/>
+		<property name="osgibundle.bundleVersion"		value="${version}"/>
+		<property name="osgibundle.bundleVendor"		value="no vendor specified"/>
+
+		<bundle outputDir           = "${osgibundle.path}"
+				filename            = "${osgibundle.bundleSymbolicName}_${osgibundle.bundleVersion}"
+				bundleVersion       = "${osgibundle.bundleVersion}"
+				bundleVendor        = "${osgibundle.bundleVendor}"
+				bundleName          = "${osgibundle.bundleSymbolicName}_${osgibundle.bundleVersion}"
+				bundleSymbolicName  = "${osgibundle.bundleSymbolicName}"
+				bundleActivator     = "${osgibundle.bundleActivator}"
+				exportPackage       = "${osgibundle.exportPackage}"
+				importPackage       = "${osgibundle.importPackage}"
+				privatePackage      = "${osgibundle.privatePackage}"
+				ignorePackage		= "${osgibundle.ignorePackage}"
+				fragmentHost        = "${osgibundle.fragmentHost}"
+				includeResource     = "${osgibundle.includeResource}">
+			<classpath>
+				<pathelement path   = "${build.classes.dir}"/>
+				<path refid         = "common.classpath.refid"/>
+				<path refid         = "project.classpath.refid"/>
+			</classpath>
+		</bundle>
+	</target>
+
+
+	<!--bundle-->
+	<target name="bundle" depends="check.is_bundle" if="is_osgibundle" description="create a bundle if osgibundle.properties is present">
+		<antcall target="force_bundle"/>
+	</target>
+
+
+	<!--check wether the project is a bundle-->
+	<target name="check.is_bundle" description="check wether the project build to a bundle">
+		<condition property="is_osgibundle">
+			<available file="${project.path}/osgibundle.properties"/>
+		</condition>
+	</target>
+
+
+	<!--general purpose build, either building jar or bundle-->
+	<target name="build" depends="jar,bundle" description="general purpose build, either building jar or bundle">
+	</target>
+
+
+	<!--run-->
+	<target name="run" depends="build" description="run using the OSGi framework launcher">
+
+		<!-- directory with all jars and config.ini -->
+		<property name="equinox" value="${common.dir}/plugins"/>
+
+		<!-- jar containing the equinox launcher -->
+		<property name="equinox_launcher_jar" value="org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar"/>
+
+        <java jar="${equinox}/${equinox_launcher_jar}" fork="true" dir="${common.dir}" >
+            <arg value="-console"/>
+            <arg value="-noExit"/>
+            <!-- <arg value="-debug"/> -->
+            <arg value="-configuration"/>
+            <arg file="${equinox}"/>
+        </java>
+
+	</target>
+
+	<!--debug-->
+	<target name="debug" depends="build" description="debug using the OSGi framework launcher">
+
+		<!-- directory with all jars and config.ini -->
+		<property name="equinox" value="${common.dir}/plugins"/>
+
+		<!-- jar containing the equinox launcher -->
+		<property name="equinox_launcher_jar" value="org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar"/>
+
+        <java jar="${equinox}/${equinox_launcher_jar}" fork="true" dir="${common.dir}" >
+            <jvmarg value="-Xdebug"/>
+            <jvmarg value="-Xrunjdwp:transport=dt_socket,suspend=y,server=y,address=${jpda.address}"/>
+			<arg value="-console"/>
+            <arg value="-noExit"/>
+            <!-- <arg value="-debug"/> -->
+            <arg value="-configuration"/>
+            <arg file="${equinox}"/>
+        </java>
+
+	</target>
+
+</project>

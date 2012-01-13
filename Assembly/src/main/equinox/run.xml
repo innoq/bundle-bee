@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<project name="Runs BundleBee on Equinox" default="run">
+
+    <description>
+        Simple script for running BundleBee on Equinox.
+
+        Author: Hendrik Schreiber, hs@tagtraum.com
+    </description>
+
+    <property name="equinox" value="plugins"/>
+
+    <target name="run">
+        <echo>Starting Equinox....</echo>
+        <echo>Use help, ss, install, etc. as needed.</echo>
+        <!--
+        we have to launch with launcher, as otherwise the framework extension isn't loaded correctly
+        and the hooks aren't registered :-( -hendrik
+        see https://bugs.eclipse.org/bugs/show_bug.cgi?id=206611
+        -->
+        <java jar="${equinox}/org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar" fork="true">
+            <arg value="-console"/>
+            <arg value="-noExit"/>
+            <!-- <arg value="-debug"/> -->
+            <arg value="-configuration"/>
+            <arg file="${equinox}"/>
+        </java>
+    </target>
+</project>

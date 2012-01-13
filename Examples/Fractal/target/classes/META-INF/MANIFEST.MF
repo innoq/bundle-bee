@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Export-Package: org.bundlebee.examples.fractal.mandelbrot;uses:="org.b
+ undlebee.examples.fractal",org.bundlebee.examples.fractal;uses:="java
+ x.swing,org.bundlebee.examples.fractal.mandelbrot,javax.swing.event",
+ org.bundlebee.examples.fractal.osgi;uses:="org.bundlebee.examples.fra
+ ctal.mandelbrot,org.eclipse.osgi.framework.console,org.osgi.framework
+ ,org.bundlebee.examples.fractal",org.bundlebee.examples.fractal.resou
+ rces.busyicons,org.bundlebee.examples.fractal.resources
+Ignore-Package: com.sun.java.swing.plaf.windows,javax.jnlp
+Built-By: philipp
+Tool: Bnd-0.0.357
+Bundle-Name: BundleBee Example: Fractal Demo
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: innoQ Deutschland GmbH
+Build-Jdk: 1.6.0_17
+Bundle-Version: 0.5.4.SNAPSHOT
+Bnd-LastModified: 1267570947061
+Embed-Transitive: true
+Bundle-Activator: org.bundlebee.examples.fractal.osgi.Activator
+Bundle-ManifestVersion: 2
+Bundle-Description: A BundleBee Demo for calculating Fractals
+Bundle-License: http://isr.cmu.edu/LICENSE.Eclipse, http://www.apache.
+ org/licenses/LICENSE-2.0.txt
+Embed-Dependency: *;scope=compile|runtime;inline=true
+Bundle-DocURL: http://bundle-bee.org
+Import-Package: javax.swing,javax.swing.border,javax.swing.event,javax
+ .swing.plaf,javax.swing.plaf.metal,javax.swing.table,javax.swing.text
+ ,org.bundlebee.examples.fractal,org.bundlebee.examples.fractal.mandel
+ brot,org.bundlebee.examples.fractal.osgi,org.bundlebee.examples.fract
+ al.resources,org.bundlebee.examples.fractal.resources.busyicons,org.e
+ clipse.osgi.framework.console;version="1.0",org.osgi.framework;versio
+ n="1.4"
+Bundle-SymbolicName: org.bundlebee.examples.fractal
+

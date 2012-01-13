@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="pulsar" default="bundle" basedir=".">
+
+	<description>Builds, tests, and runs the project ${ant.project.name} ${version}.</description>
+
+	<!-- where to find the common ant build directory -->
+	<property name="common.dir" value="../antbuild"/>
+
+	<!--import common targets-->
+	<import file="${common.dir}/common.xml"/>
+
+	<!--build dependent projects-->
+	<target name="build_dependencies">
+
+		<declare_bundle_dependency.macro	prjpath="../TestBundle" name="testbundle"/>
+
+		<!--
+		Define the projects compile classpath.
+		Library paths can be found in antbuild/libs.properties for reference.
+		-->
+		<path id="project.classpath.refid">
+			<pathelement	path="${testbundle.artifact}"/>
+		</path>
+	</target>
+
+</project>

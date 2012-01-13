@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><archetype>
+  <id>bundle</id>
+  <sources>
+    <source>src/main/java/Bundle.java</source>
+    <source>src/main/java/impl/Activator.java</source>
+    <source>src/main/java/impl/BundleImpl.java</source>
+  </sources>
+</archetype>

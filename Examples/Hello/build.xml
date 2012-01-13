@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="hello" default="build" basedir=".">
+
+	<description>Builds, tests, and runs the project ${ant.project.name} ${version}.</description>
+
+	<!-- where to find the common ant build directory -->
+	<property name="common.dir" value="../../antbuild"/>
+
+	<!--import common targets-->
+	<import file="${common.dir}/common.xml"/>
+</project>

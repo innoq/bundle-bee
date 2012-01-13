@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="manager" default="bundle" basedir=".">
+
+	<description>Builds, tests, and runs the project ${ant.project.name} ${version}.</description>
+
+	<!-- where to find the common ant build directory -->
+	<property name="common.dir" value="../antbuild"/>
+
+	<!--import common targets-->
+	<import file="${common.dir}/common.xml"/>
+
+    <!--build dependent projects-->
+	<target name="build_dependencies">
+
+		<declare_jar_dependency.macro		prjpath="../Registry"			jar="registry"/>
+		<declare_jar_dependency.macro		prjpath="../RemoteServiceCall"	jar="remoteservicecall"/>
+		<declare_bundle_dependency.macro	prjpath="../Carrier"			name="carrier"/>
+
+		<!--
+		Define the projects compile classpath.
+		Library paths can be found in antbuild/libs.properties for reference.
+		-->
+		<path id="project.classpath.refid">
+			<pathelement	path="${registry.artifact}"/>
+			<pathelement	path="${remoteservicecall.artifact}"/>
+			<pathelement	path="${carrier.artifact}"/>
+		</path>
+	</target>
+</project>

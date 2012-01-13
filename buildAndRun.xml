@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<project name="builds bundlebee and runs it on equinox" default="all">
+
+    <description>
+        Simple script for building BundleBee using Maven and
+        then deploying to and running on Equinox.
+
+        Author: Hendrik Schreiber, hs@tagtraum.com
+    </description>
+
+    <condition property="maven.executable" value="mvn.bat" else="mvn">
+        <os family="windows"/>
+    </condition>
+
+
+    <property name="org.osgi.service.http.port" value="48110"/>
+    <property name="version" value="0.5.2-SNAPSHOT"/>
+
+    <target name="build">
+        <exec executable="${maven.executable}">
+            <arg value="-Dmaven.test.skip=true"/>
+            <arg value="clean"/>
+            <arg value="install"/>
+        </exec>
+        <exec executable="${maven.executable}" dir="Assembly">
+            <arg value="assembly:assembly"/>
+        </exec>
+    </target>
+
+    <target name="test" depends="installdependencieslocally">
+        <exec executable="${maven.executable}">
+            <arg value="-Dmaven.test.skip=false"/>
+            <arg value="clean"/>
+            <arg value="install"/>
+        </exec>
+        <exec executable="${maven.executable}" dir="Assembly">
+            <arg value="assembly:assembly"/>
+        </exec>
+    </target>
+
+    <target name="installdependencieslocally">
+        <ant antfile="installDependenciesLocally.xml"/>
+    </target>
+
+    <target name="run">
+        <available file="Assembly/target/org.bundlebee.assembly_${version}-equinox.zip" type="file" property="equinox.assembly.present"/>
+        <fail unless="equinox.assembly.present">Failed to find Equinox assembly. Run with target 'all'.</fail>
+        <tstamp/>
+        <property name="temp.dir" value="${java.io.tmpdir}/bundlebee-${DSTAMP}-${TSTAMP}"/>
+        <mkdir dir="${temp.dir}"/>         
+        <unzip src="Assembly/target/org.bundlebee.assembly_${version}-equinox.zip" dest="${temp.dir}"/>
+        <echo>Starting Equinox.... in ${temp.dir}</echo>
+        <echo>Use help, ss, install, etc. as needed.</echo>
+        <chmod file="${temp.dir}/run.sh" perm="755"/>
+        <ant antfile="${temp.dir}/run.xml" dir="${temp.dir}"/>      
+        <concat>
+            <fileset dir="${temp.dir}/plugins" includes="*.log"/>
+        </concat>
+        <echo>Stopped Equinox launched from ${temp.dir}</echo>
+    </target>
+
+
+    <target name="all" depends="test,run"/>
+
+</project>

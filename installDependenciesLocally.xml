@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<project name="install dependencies locally" default="all">
+
+    <description>
+        Installs some files in the local Maven repository.
+        Should be run before running IntegrationTest for the first
+        time.
+
+        Author: Hendrik Schreiber, hs@tagtraum.com
+    </description>
+
+
+    <condition property="maven.executable" value="mvn.bat" else="mvn">
+        <os family="windows"/>
+    </condition>
+
+    <target name="all">
+
+        <get src="http://download.eclipse.org/releases/ganymede/plugins/javax.servlet_2.4.0.v200806031604.jar"
+                dest="javax.servlet_2.4.0.v200806031604.jar"
+            usetimestamp="true" ignoreerrors="true"/>
+        <antcall target="install">
+            <param name="file" value="javax.servlet_2.4.0.v200806031604.jar"/>
+            <param name="groupId" value="javax.servlet"/>
+            <param name="artifactId" value="servlet"/>
+            <param name="version" value="2.4.0.v200806031604"/>
+        </antcall>
+        <delete file="javax.servlet_2.4.0.v200806031604.jar"/>
+
+        <get src="http://download.eclipse.org/releases/ganymede/plugins/org.eclipse.equinox.http_1.0.200.v20080421-2006.jar"
+             dest="org.eclipse.equinox.http_1.0.200.v20080421-2006.jar"
+            usetimestamp="true" ignoreerrors="true"/>
+        <antcall target="install">
+            <param name="file" value="org.eclipse.equinox.http_1.0.200.v20080421-2006.jar"/>
+            <param name="groupId" value="org.eclipse.equinox"/>
+            <param name="artifactId" value="org.eclipse.equinox.http"/>
+            <param name="version" value="1.0.200.v20080421-2006"/>
+        </antcall>
+        <delete file="org.eclipse.equinox.http_1.0.200.v20080421-2006.jar"/>
+
+        <get src="http://download.eclipse.org/equinox/drops/R-3.4.2-200902111700/org.eclipse.osgi_3.4.3.R34x_v20081215-1030.jar"
+             dest="org.eclipse.osgi_3.4.3.R34x_v20081215-1030.jar"
+            usetimestamp="true" ignoreerrors="true"/>
+        <antcall target="install">
+            <param name="file" value="org.eclipse.osgi_3.4.3.R34x_v20081215-1030.jar"/>
+            <param name="groupId" value="org.eclipse.osgi"/>
+            <param name="artifactId" value="org.eclipse.osgi"/>
+            <param name="version" value="3.4.3.R34x_v20081215-1030"/>
+        </antcall>
+        <delete file="org.eclipse.osgi_3.4.3.R34x_v20081215-1030.jar"/>
+
+        <get src="http://download.eclipse.org/releases/ganymede/plugins/org.eclipse.osgi.services_3.1.200.v20071203.jar"
+             dest="org.eclipse.osgi.services_3.1.200.v20071203.jar"
+            usetimestamp="true" ignoreerrors="true"/>
+        <antcall target="install">
+            <param name="file" value="org.eclipse.osgi.services_3.1.200.v20071203.jar"/>
+            <param name="groupId" value="org.eclipse.osgi"/>
+            <param name="artifactId" value="org.eclipse.osgi.services"/>
+            <param name="version" value="3.1.200.v20071203"/>
+        </antcall>
+        <delete file="org.eclipse.osgi.services_3.1.200.v20071203.jar"/>
+
+        <get src="http://download.eclipse.org/releases/ganymede/plugins/org.eclipse.osgi.util_3.1.300.v20080303.jar"
+             dest="org.eclipse.osgi.util_3.1.300.v20080303.jar"
+            usetimestamp="true" ignoreerrors="true"/>
+        <antcall target="install">
+            <param name="file" value="org.eclipse.osgi.util_3.1.300.v20080303.jar"/>
+            <param name="groupId" value="org.eclipse.osgi"/>
+            <param name="artifactId" value="org.eclipse.osgi.util"/>
+            <param name="version" value="3.1.300.v20080303"/>
+        </antcall>
+        <delete file="org.eclipse.osgi.util_3.1.300.v20080303.jar"/>
+
+        <get src="http://download.eclipse.org/equinox/drops/R-3.4.2-200902111700/org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar"
+             dest="org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar"
+            usetimestamp="true" ignoreerrors="true"/>
+        <antcall target="install">
+            <param name="file" value="org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar"/>
+            <param name="groupId" value="org.eclipse.equinox"/>
+            <param name="artifactId" value="org.eclipse.equinox.launcher"/>
+            <param name="version" value="1.0.101.R34x_v20081125"/>
+        </antcall>
+        <delete file="org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar"/>
+
+        <get src="http://www.osgi.org/download/bindex.jar"
+             dest="bindex.jar"
+            usetimestamp="true" ignoreerrors="true"/>
+        <!-- strip ant task -->
+        <mkdir dir="bindex"/>
+        <unjar src="bindex.jar" dest="bindex">
+            <patternset>
+                <exclude name="**/BindexTask*.class"/>
+            </patternset>
+        </unjar>
+        <delete file="bindex.jar"/>
+        <jar destfile="bindex.jar" update="true" basedir="bindex"/>
+        <antcall target="install">
+        <param name="file" value="bindex.jar"/>
+            <param name="groupId" value="org.osgi.impl.bundle.bindex"/>
+            <param name="artifactId" value="bindex"/>
+            <param name="version" value="2.2"/>
+        </antcall>
+        <delete file="bindex.jar"/>
+        <delete dir="bindex"/>
+    </target>
+
+
+    <target name="install">
+        <echo>Installing ${groupId}/${artifactId}/${version} in local maven repository.</echo>
+        <exec executable="${maven.executable}">
+            <arg value="install:install-file"/>
+            <arg value="-Dfile=${file}"/>
+            <arg value="-DgroupId=${groupId}"/>
+            <arg value="-DartifactId=${artifactId}"/>
+            <arg value="-Dversion=${version}"/>
+            <arg value="-Dpackaging=jar"/>
+        </exec>
+    </target>
+
+</project>

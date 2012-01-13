@@ -1,0 +1,902 @@
+<?xml version='1.0' encoding='utf-8'?>
+<?xml-stylesheet type='text/xsl' href='http://www2.osgi.org/www/obr2html.xsl'?>
+
+<repository lastmodified='20100104121147.741' name='BundleBee Repository 5072927086811421907'>
+  <resource id='javax.servlet/2.4.0.v200806031604' presentationname='Servlet API Bundle' symbolicname='javax.servlet' uri='javax.servlet_2.4.0.v200806031604.jar' version='2.4.0.v200806031604'>
+    <size>
+      107639
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='Servlet API Bundle'/>
+      <p n='symbolicname' v='javax.servlet'/>
+      <p n='version' t='version' v='2.4.0.v200806031604'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='javax.servlet'/>
+      <p n='version' t='version' v='2.4.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='javax.servlet.http'/>
+      <p n='version' t='version' v='2.4.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='javax.servlet.resources'/>
+      <p n='version' t='version' v='2.4.0'/>
+    </capability>
+    <require extend='false' filter='(|(ee=CDC-1.0/Foundation-1.0)(ee=J2SE-1.3))' multiple='false' name='ee' optional='false'>
+      Execution Environment (|(ee=CDC-1.0/Foundation-1.0)(ee=J2SE-1.3))
+    </require>
+  </resource>
+  <resource id='org.apache.felix.bundlerepository/1.2.1' presentationname='Apache Felix Bundle Repository' symbolicname='org.apache.felix.bundlerepository' uri='org.apache.felix.bundlerepository_1.2.1.jar' version='1.2.1'>
+    <description>
+      Bundle repository service.
+    </description>
+    <size>
+      135820
+    </size>
+    <license>
+      http://www.apache.org/licenses/LICENSE-2.0.txt
+    </license>
+    <documentation>
+      http://felix.apache.org/site/apache-felix-osgi-bundle-repository.html
+    </documentation>
+    <source>
+      http://felix.apache.org/site/downloads.cgi
+    </source>
+    <capability name='service'>
+      <p n='service' v='org.osgi.service.obr.RepositoryAdmin'/>
+    </capability>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='Apache Felix Bundle Repository'/>
+      <p n='symbolicname' v='org.apache.felix.bundlerepository'/>
+      <p n='version' t='version' v='1.2.1'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.obr'/>
+      <p n='uses' v='org.osgi.framework'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.3.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=1.3.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.service.log)(version&gt;=1.3.0))' multiple='false' name='package' optional='true'>
+      Import package org.osgi.service.log ;version=1.3.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.service.obr)(version&gt;=1.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.service.obr ;version=1.0.0
+    </require>
+  </resource>
+  <resource id='org.bundlebee.carrier/0.5.2' presentationname='org.bundlebee.carrier_0.5.2' symbolicname='org.bundlebee.carrier' uri='org.bundlebee.carrier_0.5.2.jar' version='0.5.2'>
+    <size>
+      10999
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='org.bundlebee.carrier_0.5.2'/>
+      <p n='symbolicname' v='org.bundlebee.carrier'/>
+      <p n='version' t='version' v='0.5.2'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.carrier'/>
+      <p n='uses' v='org.osgi.service.obr,org.osgi.framework'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.carrier.impl'/>
+      <p n='uses' v='org.osgi.service.obr,org.bundlebee.carrier,org.osgi.framework,org.bundlebee.repository,org.bundlebee.registry.impl,org.bundlebee.registry.directory,org.slf4j,org.osgi.util.tracker,org.bundlebee.registry'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.carrier)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.carrier
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.carrier.impl)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.carrier.impl
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.registry)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.registry
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.registry.directory)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.registry.directory
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.registry.impl)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.registry.impl
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.repository)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.repository
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.4.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=1.4.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.service.obr)(version&gt;=1.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.service.obr ;version=1.0.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.util.tracker)(version&gt;=1.3.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.util.tracker ;version=1.3.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.slf4j)(version&gt;=1.5.0))' multiple='false' name='package' optional='false'>
+      Import package org.slf4j ;version=1.5.0
+    </require>
+  </resource>
+  <resource id='org.bundlebee.cli/0.5.2' presentationname='org.bundlebee.cli_0.5.2' symbolicname='org.bundlebee.cli' uri='org.bundlebee.cli_0.5.2.jar' version='0.5.2'>
+    <size>
+      11424
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='org.bundlebee.cli_0.5.2'/>
+      <p n='symbolicname' v='org.bundlebee.cli'/>
+      <p n='version' t='version' v='0.5.2'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.cli.impl'/>
+      <p n='uses' v='org.bundlebee.remoteservicecall,org.bundlebee.registry.impl,org.bundlebee.registry.directory,org.osgi.framework,org.bundlebee.registry,org.eclipse.osgi.framework.console'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.cli.impl)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.cli.impl
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.registry)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.registry
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.registry.directory)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.registry.directory
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.registry.impl)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.registry.impl
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.remoteservicecall)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.remoteservicecall
+    </require>
+    <require extend='false' filter='(&amp;(package=org.eclipse.osgi.framework.console)(version&gt;=1.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.eclipse.osgi.framework.console ;version=1.0.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.4.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=1.4.0
+    </require>
+  </resource>
+  <resource id='org.bundlebee.examples.fractal/0.5.2' presentationname='org.bundlebee.examples.fractal_0.5.2' symbolicname='org.bundlebee.examples.fractal' uri='org.bundlebee.examples.fractal_0.5.2.jar' version='0.5.2'>
+    <size>
+      362320
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='org.bundlebee.examples.fractal_0.5.2'/>
+      <p n='symbolicname' v='org.bundlebee.examples.fractal'/>
+      <p n='version' t='version' v='0.5.2'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.examples.fractal.resources.busyicons'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.examples.fractal.osgi'/>
+      <p n='uses' v='org.bundlebee.examples.fractal.mandelbrot,org.bundlebee.examples.fractal,org.osgi.framework,org.eclipse.osgi.framework.console'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.examples.fractal.mandelbrot'/>
+      <p n='uses' v='org.bundlebee.examples.fractal'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.examples.fractal'/>
+      <p n='uses' v='org.bundlebee.examples.fractal.mandelbrot,javax.swing.event,javax.swing'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.examples.fractal.resources'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=javax.swing)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package javax.swing
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.swing.border)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package javax.swing.border
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.swing.event)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package javax.swing.event
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.swing.plaf)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package javax.swing.plaf
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.swing.plaf.metal)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package javax.swing.plaf.metal
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.swing.table)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package javax.swing.table
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.swing.text)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package javax.swing.text
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.examples.fractal)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.examples.fractal
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.examples.fractal.mandelbrot)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.examples.fractal.mandelbrot
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.examples.fractal.osgi)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.examples.fractal.osgi
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.examples.fractal.resources)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.examples.fractal.resources
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.examples.fractal.resources.busyicons)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.examples.fractal.resources.busyicons
+    </require>
+    <require extend='false' filter='(&amp;(package=org.eclipse.osgi.framework.console)(version&gt;=1.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.eclipse.osgi.framework.console ;version=1.0.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.4.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=1.4.0
+    </require>
+  </resource>
+  <resource id='org.bundlebee.manager/0.5.2' presentationname='org.bundlebee.manager_0.5.2' symbolicname='org.bundlebee.manager' uri='org.bundlebee.manager_0.5.2.jar' version='0.5.2'>
+    <size>
+      35394
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='org.bundlebee.manager_0.5.2'/>
+      <p n='symbolicname' v='org.bundlebee.manager'/>
+      <p n='version' t='version' v='0.5.2'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.remoteservicecall'/>
+      <p n='uses' v='org.slf4j,org.osgi.framework'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.manager'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.manager.impl'/>
+      <p n='uses' v='javax.servlet.http,org.bundlebee.carrier,org.osgi.service.http,org.osgi.framework,org.bundlebee.remoteservicecall,org.bundlebee.registry.impl,javax.servlet,org.slf4j,org.bundlebee.manager,org.osgi.util.tracker,org.bundlebee.registry'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=javax.servlet)(version&gt;=2.4.0))' multiple='false' name='package' optional='false'>
+      Import package javax.servlet ;version=2.4.0
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.servlet.http)(version&gt;=2.4.0))' multiple='false' name='package' optional='false'>
+      Import package javax.servlet.http ;version=2.4.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.carrier)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.carrier
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.manager)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.manager
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.manager.impl)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.manager.impl
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.registry)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.registry
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.registry.impl)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.registry.impl
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.remoteservicecall)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.remoteservicecall
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.4.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=1.4.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.service.http)(version&gt;=1.2.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.service.http ;version=1.2.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.util.tracker)(version&gt;=1.3.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.util.tracker ;version=1.3.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.slf4j)(version&gt;=1.5.0))' multiple='false' name='package' optional='false'>
+      Import package org.slf4j ;version=1.5.0
+    </require>
+  </resource>
+  <resource id='org.bundlebee.repository/0.5.2' presentationname='org.bundlebee.repository_0.5.2' symbolicname='org.bundlebee.repository' uri='org.bundlebee.repository_0.5.2.jar' version='0.5.2'>
+    <size>
+      204943
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='org.bundlebee.repository_0.5.2'/>
+      <p n='symbolicname' v='org.bundlebee.repository'/>
+      <p n='version' t='version' v='0.5.2'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.repository.impl'/>
+      <p n='uses' v='javax.servlet.http,org.osgi.service.obr,org.osgi.service.http,org.osgi.framework,org.bundlebee.repository,org.bundlebee.registry.impl,org.slf4j,org.osgi.util.tracker,org.bundlebee.registry'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='javax.servlet.http'/>
+      <p n='uses' v='javax.servlet'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='javax.servlet'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='javax.servlet.resources'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.repository'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=javax.servlet)(version&gt;=2.4.0))' multiple='false' name='package' optional='false'>
+      Import package javax.servlet ;version=2.4.0
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.servlet.http)(version&gt;=2.4.0))' multiple='false' name='package' optional='false'>
+      Import package javax.servlet.http ;version=2.4.0
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.servlet.resources)(version&gt;=2.4.0))' multiple='false' name='package' optional='false'>
+      Import package javax.servlet.resources ;version=2.4.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.registry)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.registry
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.registry.impl)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.registry.impl
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.repository)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.repository
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.repository.impl)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.repository.impl
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.4.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=1.4.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.service.http)(version&gt;=1.2.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.service.http ;version=1.2.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.service.obr)(version&gt;=1.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.service.obr ;version=1.0.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.util.tracker)(version&gt;=1.3.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.util.tracker ;version=1.3.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.slf4j)(version&gt;=1.5.0))' multiple='false' name='package' optional='false'>
+      Import package org.slf4j ;version=1.5.0
+    </require>
+  </resource>
+  <resource id='org.bundlebee.testbundle/0.5.2' presentationname='org.bundlebee.testbundle_0.5.2' symbolicname='org.bundlebee.testbundle' uri='org.bundlebee.testbundle_0.5.2.jar' version='0.5.2'>
+    <size>
+      8761
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='org.bundlebee.testbundle_0.5.2'/>
+      <p n='symbolicname' v='org.bundlebee.testbundle'/>
+      <p n='version' t='version' v='0.5.2'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.testbundle.impl'/>
+      <p n='uses' v='org.bundlebee.testbundle.cli,org.osgi.framework,org.bundlebee.testbundle,org.eclipse.osgi.framework.console'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.testbundle.cli'/>
+      <p n='uses' v='org.bundlebee.testbundle.impl,org.bundlebee.testbundle,org.eclipse.osgi.framework.console'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.testbundle'/>
+      <p n='uses' v='org.bundlebee.testbundle.impl'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.testbundle)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.testbundle
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.testbundle.cli)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.testbundle.cli
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.testbundle.impl)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.testbundle.impl
+    </require>
+    <require extend='false' filter='(&amp;(package=org.eclipse.osgi.framework.console)(version&gt;=1.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.eclipse.osgi.framework.console ;version=1.0.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.4.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=1.4.0
+    </require>
+  </resource>
+  <resource id='org.bundlebee.watchdog/0.5.2' presentationname='org.bundlebee.watchdog_0.5.2' symbolicname='org.bundlebee.watchdog' uri='org.bundlebee.watchdog_0.5.2.jar' version='0.5.2'>
+    <size>
+      3530
+    </size>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='org.bundlebee.watchdog_0.5.2'/>
+      <p n='symbolicname' v='org.bundlebee.watchdog'/>
+      <p n='version' t='version' v='0.5.2'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.watchdog.impl'/>
+      <p n='uses' v='org.bundlebee.registry.impl,org.slf4j,org.osgi.framework,org.bundlebee.registry'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.registry)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.registry
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.registry.impl)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.registry.impl
+    </require>
+    <require extend='false' filter='(&amp;(package=org.bundlebee.watchdog.impl)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.bundlebee.watchdog.impl
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.4.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=1.4.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.slf4j)(version&gt;=1.5.0))' multiple='false' name='package' optional='false'>
+      Import package org.slf4j ;version=1.5.0
+    </require>
+  </resource>
+  <resource id='org.bundlebee.weaver/0.5.2' presentationname='org.bundlebee.weaver_0.5.2' symbolicname='org.bundlebee.weaver' uri='org.bundlebee.weaver_0.5.2.jar' version='0.5.2'>
+    <size>
+      1025945
+    </size>
+    <capability name='fragment'>
+      <p n='host' v='org.eclipse.osgi'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='bundle'>
+      <p n='host' v='org.eclipse.osgi'/>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='org.bundlebee.weaver_0.5.2'/>
+      <p n='symbolicname' v='org.bundlebee.weaver'/>
+      <p n='version' t='version' v='0.5.2'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.joran'/>
+      <p n='uses' v='ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.spi,ch.qos.logback.core.joran.event,ch.qos.logback.core.spi,ch.qos.logback.core'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.selector'/>
+      <p n='uses' v='ch.qos.logback.classic,org.slf4j,ch.qos.logback.classic.util,ch.qos.logback.core.joran.spi,ch.qos.logback.classic.joran,ch.qos.logback.core,ch.qos.logback.core.util'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.status'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.selector.servlet'/>
+      <p n='uses' v='ch.qos.logback.classic,org.slf4j,ch.qos.logback.classic.util,org.slf4j.impl,ch.qos.logback.classic.selector'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.registry.net'/>
+      <p n='uses' v='org.bundlebee.registry.impl,org.slf4j,org.bundlebee.registry'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.turbo'/>
+      <p n='uses' v='ch.qos.logback.classic,org.slf4j,ch.qos.logback.core.spi'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.rolling'/>
+      <p n='uses' v='ch.qos.logback.core.rolling.helper,ch.qos.logback.core.spi,ch.qos.logback.core,ch.qos.logback.core.util'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.slf4j'/>
+      <p n='uses' v='org.slf4j.spi,org.slf4j.helpers,org.slf4j.impl'/>
+      <p n='version' t='version' v='1.5.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.slf4j.helpers'/>
+      <p n='uses' v='org.slf4j.spi,org.slf4j'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.pattern'/>
+      <p n='uses' v='ch.qos.logback.core.spi,ch.qos.logback.core.status,ch.qos.logback.core,ch.qos.logback.core.pattern.parser'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.helpers'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.boolex'/>
+      <p n='uses' v='ch.qos.logback.classic,ch.qos.logback.core.boolex,ch.qos.logback.classic.spi,org.slf4j,ch.qos.logback.core'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.joran.spi'/>
+      <p n='uses' v='ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.event,ch.qos.logback.core.spi,ch.qos.logback.core.status,ch.qos.logback.core,ch.qos.logback.core.util'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.joran.event'/>
+      <p n='uses' v='ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.status,ch.qos.logback.core'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.filter'/>
+      <p n='uses' v='ch.qos.logback.core.boolex,ch.qos.logback.core.spi'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.slf4j.spi'/>
+      <p n='uses' v='org.slf4j'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.db'/>
+      <p n='uses' v='ch.qos.logback.classic,ch.qos.logback.classic.spi,ch.qos.logback.core.db'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.pattern.util'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.html'/>
+      <p n='uses' v='ch.qos.logback.core.pattern,ch.qos.logback.core,ch.qos.logback.core.pattern.parser'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.joran'/>
+      <p n='uses' v='ch.qos.logback.classic.helpers,ch.qos.logback.core.joran.action,ch.qos.logback.core.joran,ch.qos.logback.classic.joran.action,ch.qos.logback.core.joran.spi'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.db.dialect'/>
+      <p n='uses' v='ch.qos.logback.core.spi'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.joran.action'/>
+      <p n='uses' v='ch.qos.logback.core.pattern.util,ch.qos.logback.core.spi,ch.qos.logback.core,ch.qos.logback.core.boolex,ch.qos.logback.core.joran.spi,ch.qos.logback.core.joran.event,ch.qos.logback.core.filter,ch.qos.logback.core.util'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.net'/>
+      <p n='uses' v='ch.qos.logback.classic.util,ch.qos.logback.classic.pattern,ch.qos.logback.classic.joran,ch.qos.logback.core,ch.qos.logback.classic,ch.qos.logback.core.boolex,ch.qos.logback.classic.spi,org.slf4j,ch.qos.logback.core.helpers,ch.qos.logback.classic.boolex,ch.qos.logback.core.joran.spi,ch.qos.logback.core.net'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.slf4j.impl'/>
+      <p n='uses' v='org.slf4j.spi,ch.qos.logback.classic.util,ch.qos.logback.classic.selector,ch.qos.logback.core,ch.qos.logback.classic,org.slf4j,org.slf4j.helpers,ch.qos.logback.core.joran.spi,ch.qos.logback.core.util'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.rolling.helper'/>
+      <p n='uses' v='ch.qos.logback.core.rolling,ch.qos.logback.core.pattern,ch.qos.logback.core.spi,ch.qos.logback.core.status,ch.qos.logback.core,ch.qos.logback.core.pattern.parser'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.jmx'/>
+      <p n='uses' v='ch.qos.logback.classic,ch.qos.logback.classic.util,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.classic.joran,ch.qos.logback.core.status,ch.qos.logback.core'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.remoteservicecall'/>
+      <p n='uses' v='org.slf4j'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='javassist.runtime'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.spi'/>
+      <p n='uses' v='ch.qos.logback.classic.turbo,org.slf4j.spi,ch.qos.logback.classic,org.slf4j,org.slf4j.helpers,org.slf4j.impl,ch.qos.logback.core.spi,ch.qos.logback.core'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.joran.action'/>
+      <p n='uses' v='ch.qos.logback.core.joran.action,ch.qos.logback.classic.net,ch.qos.logback.classic.jmx,ch.qos.logback.core,ch.qos.logback.classic,ch.qos.logback.core.boolex,ch.qos.logback.classic.boolex,ch.qos.logback.core.joran.spi,ch.qos.logback.core.util'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.net'/>
+      <p n='uses' v='ch.qos.logback.core.boolex,ch.qos.logback.core'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.weaver.equinox'/>
+      <p n='uses' v='ch.qos.logback.classic.util,org.bundlebee.registry.impl,ch.qos.logback.classic,org.slf4j,ch.qos.logback.core.joran.spi,org.bundlebee.registry'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.pattern.parser'/>
+      <p n='uses' v='ch.qos.logback.core.pattern.util,ch.qos.logback.core.pattern,ch.qos.logback.core.spi,ch.qos.logback.core.status,ch.qos.logback.core,ch.qos.logback.core.util'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.layout'/>
+      <p n='uses' v='ch.qos.logback.core'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.util'/>
+      <p n='uses' v='ch.qos.logback.classic,org.slf4j,ch.qos.logback.classic.spi,ch.qos.logback.core.joran.spi,ch.qos.logback.core.status,ch.qos.logback.classic.joran,ch.qos.logback.core,ch.qos.logback.core.util'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.pattern'/>
+      <p n='uses' v='ch.qos.logback.classic.util,ch.qos.logback.core.status,ch.qos.logback.core,ch.qos.logback.core.boolex,ch.qos.logback.classic,ch.qos.logback.classic.spi,ch.qos.logback.core.pattern,org.slf4j,ch.qos.logback.core.net'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.spi'/>
+      <p n='uses' v='ch.qos.logback.core.filter,ch.qos.logback.core.status,ch.qos.logback.core'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core'/>
+      <p n='uses' v='ch.qos.logback.core.filter,ch.qos.logback.core.spi,ch.qos.logback.core.status'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.helpers'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.registry.impl'/>
+      <p n='uses' v='org.bundlebee.registry.directory,org.slf4j,org.bundlebee.registry.net,org.bundlebee.registry'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.registry.directory'/>
+      <p n='uses' v='org.bundlebee.registry.impl,org.slf4j,org.bundlebee.registry.net,org.bundlebee.registry'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.html'/>
+      <p n='uses' v='ch.qos.logback.classic.helpers,ch.qos.logback.classic,ch.qos.logback.core.pattern,ch.qos.logback.classic.spi,ch.qos.logback.core.html,ch.qos.logback.core'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic'/>
+      <p n='uses' v='org.slf4j.spi,ch.qos.logback.core.spi,ch.qos.logback.classic.pattern,ch.qos.logback.core.status,ch.qos.logback.core,ch.qos.logback.classic.turbo,org.slf4j,ch.qos.logback.classic.spi,ch.qos.logback.core.pattern'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.boolex'/>
+      <p n='uses' v='ch.qos.logback.core.spi,ch.qos.logback.core'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.read'/>
+      <p n='uses' v='ch.qos.logback.core.helpers,ch.qos.logback.core'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.db'/>
+      <p n='uses' v='ch.qos.logback.core.joran.action,ch.qos.logback.core.spi,ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.db.dialect,ch.qos.logback.core.util'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.classic.filter'/>
+      <p n='uses' v='ch.qos.logback.classic,ch.qos.logback.classic.spi,ch.qos.logback.core.spi,ch.qos.logback.core.filter'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ch.qos.logback.core.util'/>
+      <p n='uses' v='ch.qos.logback.core.spi,ch.qos.logback.core.status,ch.qos.logback.core'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.registry'/>
+      <p n='uses' v='org.bundlebee.registry.directory'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.bundlebee.weaver'/>
+      <p n='uses' v='org.bundlebee.remoteservicecall,org.bundlebee.registry.impl,org.bundlebee.registry.directory,org.slf4j,org.bundlebee.registry'/>
+      <p n='version' t='version' v='0.0.0'/>
+    </capability>
+    <require extend='true' filter='(&amp;(symbolicname=org.eclipse.osgi)(version&gt;=0.0.0))' multiple='false' name='bundle' optional='false'>
+      Required Host org.eclipse.osgi
+    </require>
+  </resource>
+  <resource id='org.eclipse.equinox.http/1.0.200.v20080421-2006' presentationname='HTTP Service' symbolicname='org.eclipse.equinox.http' uri='org.eclipse.equinox.http_1.0.200.v20080421-2006.jar' version='1.0.200.v20080421-2006'>
+    <size>
+      93596
+    </size>
+    <copyright>
+      Copyright (c) IBM Corp. 1999, 2005
+    </copyright>
+    <capability name='service'>
+      <p n='service' v='org.osgi.service.http.HttpService'/>
+    </capability>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='HTTP Service'/>
+      <p n='symbolicname' v='org.eclipse.equinox.http'/>
+      <p n='version' t='version' v='1.0.200.v20080421-2006'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.eclipse.equinox.http'/>
+      <p n='version' t='version' v='0.0.0'/>
+      <p n='x-internal' v='true'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.eclipse.equinox.http.servlet'/>
+      <p n='version' t='version' v='0.0.0'/>
+      <p n='x-internal' v='true'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.eclipse.equinox.socket'/>
+      <p n='version' t='version' v='0.0.0'/>
+      <p n='x-internal' v='true'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.eclipse.equinox.socket.https'/>
+      <p n='version' t='version' v='0.0.0'/>
+      <p n='x-internal' v='true'/>
+    </capability>
+    <require extend='false' filter='(service=org.osgi.service.log.LogService)' multiple='true' name='service' optional='false'>
+      Import Service org.osgi.service.log.LogService
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.servlet)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package javax.servlet
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.servlet.http)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package javax.servlet.http
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.net)(version&gt;=0.0.0))' multiple='false' name='package' optional='true'>
+      Import package javax.net
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=1.0.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.service.cm)(version&gt;=1.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.service.cm ;version=1.0.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.service.http)(version&gt;=1.1.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.service.http ;version=1.1.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.service.log)(version&gt;=1.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.service.log ;version=1.0.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.osgi.util.tracker)(version&gt;=1.1.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.util.tracker ;version=1.1.0
+    </require>
+    <require extend='false' filter='(&amp;(package=org.eclipse.osgi.util)(version&gt;=0.0.0))' multiple='false' name='package' optional='false'>
+      Import package org.eclipse.osgi.util
+    </require>
+    <require extend='false' filter='(|(ee=J2SE-1.4)(ee=CDC-1.0/Foundation-1.0)(ee=OSGi/Minimum-1.1))' multiple='false' name='ee' optional='false'>
+      Execution Environment (|(ee=J2SE-1.4)(ee=CDC-1.0/Foundation-1.0)(ee=OSGi/Minimum-1.1))
+    </require>
+  </resource>
+  <resource id='org.eclipse.osgi.services/3.1.200.v20071203' presentationname='OSGi Release 4.0.1 Services' symbolicname='org.eclipse.osgi.services' uri='org.eclipse.osgi.services_3.1.200.v20071203.jar' version='3.1.200.v20071203'>
+    <description>
+      OSGi Service Platform Release 4.0.1 Service Interfaces and
+       Classes
+    </description>
+    <size>
+      63666
+    </size>
+    <documentation>
+      http://www.eclipse.org
+    </documentation>
+    <copyright>
+      Copyright (c) 2003, 2004 IBM Corporation and others. All rights
+       reserved. This program and the accompanying materials  are
+       made available under the terms of the Eclipse Public License
+       v1.0 which accompanies this distribution, and is available
+       at http://www.eclipse.org/legal/epl-v10.html
+    </copyright>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='OSGi Release 4.0.1 Services'/>
+      <p n='symbolicname' v='org.eclipse.osgi.services'/>
+      <p n='version' t='version' v='3.1.200.v20071203'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.cm'/>
+      <p n='version' t='version' v='1.2.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.component'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.device'/>
+      <p n='version' t='version' v='1.1.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.event'/>
+      <p n='version' t='version' v='1.1.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.http'/>
+      <p n='version' t='version' v='1.2.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.io'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.log'/>
+      <p n='version' t='version' v='1.3.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.metatype'/>
+      <p n='version' t='version' v='1.1.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.provisioning'/>
+      <p n='version' t='version' v='1.1.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.upnp'/>
+      <p n='version' t='version' v='1.1.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.useradmin'/>
+      <p n='version' t='version' v='1.1.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.service.wireadmin'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.2.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=1.2.0
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.servlet)(version&gt;=0.0.0))' multiple='false' name='package' optional='true'>
+      Import package javax.servlet
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.servlet.http)(version&gt;=0.0.0))' multiple='false' name='package' optional='true'>
+      Import package javax.servlet.http
+    </require>
+    <require extend='false' filter='(|(ee=OSGi/Minimum-1.0))' multiple='false' name='ee' optional='false'>
+      Execution Environment (|(ee=OSGi/Minimum-1.0))
+    </require>
+  </resource>
+  <resource id='org.eclipse.osgi.util/3.1.300.v20080303' presentationname='OSGi Release 4.0.1 Utility Classes' symbolicname='org.eclipse.osgi.util' uri='org.eclipse.osgi.util_3.1.300.v20080303.jar' version='3.1.300.v20080303'>
+    <description>
+      OSGi Service Platform Release 4.0.1 Utility Classes
+    </description>
+    <size>
+      22759
+    </size>
+    <documentation>
+      http://www.eclipse.org
+    </documentation>
+    <copyright>
+      Copyright (c) 2003, 2005 IBM Corporation and others. All rights
+       reserved. This program and the accompanying materials  are
+       made available under the terms of the Eclipse Public License
+       v1.0 which accompanies this distribution, and is available
+       at http://www.eclipse.org/legal/epl-v10.html
+    </copyright>
+    <capability name='bundle'>
+      <p n='manifestversion' v='2'/>
+      <p n='presentationname' v='OSGi Release 4.0.1 Utility Classes'/>
+      <p n='symbolicname' v='org.eclipse.osgi.util'/>
+      <p n='version' t='version' v='3.1.300.v20080303'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.util.measurement'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.util.position'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='org.osgi.util.xml'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+    <require extend='false' filter='(&amp;(package=org.osgi.framework)(version&gt;=1.1.0))' multiple='false' name='package' optional='false'>
+      Import package org.osgi.framework ;version=1.1.0
+    </require>
+    <require extend='false' filter='(&amp;(package=javax.xml.parsers)(version&gt;=0.0.0))' multiple='false' name='package' optional='true'>
+      Import package javax.xml.parsers
+    </require>
+    <require extend='false' filter='(|(ee=OSGi/Minimum-1.0))' multiple='false' name='ee' optional='false'>
+      Execution Environment (|(ee=OSGi/Minimum-1.0))
+    </require>
+  </resource>
+</repository>

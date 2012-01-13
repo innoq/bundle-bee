@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.bundlebee</groupId>
+        <artifactId>org.bundlebee</artifactId>
+        <version>0.5.4-SNAPSHOT</version>
+    </parent>
+    <artifactId>org.bundlebee.weaver</artifactId>
+    <packaging>bundle</packaging>
+    <name>BundleBee Weaver</name>
+    <description>Weaves remote service call aspects into service implementations.</description>
+    <dependencies>
+        <dependency>
+            <groupId>${pom.groupId}</groupId>
+            <artifactId>org.bundlebee.remoteservicecall</artifactId>
+            <version>${pom.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${pom.groupId}</groupId>
+            <artifactId>org.bundlebee.registry</artifactId>
+            <version>${pom.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>com.springsource.ch.qos.logback.core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>com.springsource.ch.qos.logback.classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>osgi</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Fragment-Host>org.eclipse.osgi;extension:=framework</Fragment-Host>
+                        <Export-Package>org.bundlebee.*,javassist.runtime.*,org.slf4j;version="1.5",org.slf4j.*,ch.qos.logback.classic.*,ch.qos.logback.core.*</Export-Package>
+                        <Private-Package>javassist.*</Private-Package>
+                        <Import-Package>!*</Import-Package>
+                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

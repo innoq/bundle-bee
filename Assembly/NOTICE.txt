@@ -1,0 +1,1 @@
+NOTICE for BundleBee ${pom.version}
