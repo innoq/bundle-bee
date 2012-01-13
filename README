@@ -1,17 +1,19 @@
-:README: v${pom.version}
+h1. Bundle Bee
+
+h2. Introduction
 
 Bundle-Bee allows you to turn multiple OSGi framework instances into a grid, in which service calls are distributed across VM boundaries.
 This distribution contains a complete Equinox framework instance, enhanced with Bundle-Bee.
 
 
-::Requirements::
+h2. Requirements
 
 Java 5
 Multicast-capable network
 Either no firewall or one with the following open ports: UDP 5555 (multicast), UDP 5556 (unicast), TCP 48110
 
 
-::Configuration::
+h2. Configuration
 
 To configure the Bundle-Bee components in the Equinox OSGi framework, edit the file plugins/config.ini.
 Most available settings are described in comments.
@@ -38,7 +40,7 @@ org.bundlebee.weaver.instrumentedmethods=org\\.bundlebee\\.testbundle\\.impl\\.T
 To add your own bundle, just place it into the plugins folder and add a corresponding entry to the osgi.bundles setting.
 
 
-::Usage::
+h2. Usage
 
 Depending on your OS, start the framework with
 
