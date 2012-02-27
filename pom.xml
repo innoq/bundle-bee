@@ -166,11 +166,6 @@
             <name>Codehause Maven2 Repository</name>
             <url>http://repository.codehaus.org</url>
         </pluginRepository>
-        <pluginRepository>
-            <id>jboss-repositry</id>
-            <name>JBoss Maven2 Repository</name>
-            <url>http://repository.jboss.com/maven2</url>
-        </pluginRepository>
     </pluginRepositories>
     <dependencies>
         <dependency>
