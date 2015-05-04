@@ -152,19 +152,9 @@
     </repositories>
     <pluginRepositories>
         <pluginRepository>
-            <id>codehaus-snapshots</id>
-            <name>Codehaus Maven 2 Snapshot Repository</name>
-            <url>http://snapshots.repository.codehaus.org</url>
-        </pluginRepository>
-        <pluginRepository>
             <id>maven2-repository.dev.java.net</id>
             <name>Java.net Maven 2 Repository</name>
             <url>http://download.java.net/maven/2</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>codehaus-repository</id>
-            <name>Codehause Maven2 Repository</name>
-            <url>http://repository.codehaus.org</url>
         </pluginRepository>
     </pluginRepositories>
     <dependencies>
