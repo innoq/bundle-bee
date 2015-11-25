@@ -16,9 +16,9 @@
 			<artifactId>servlet</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>${pom.groupId}</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>org.bundlebee.registry</artifactId>
-			<version>${pom.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.osgi.impl.bundle.bindex</groupId>
@@ -38,13 +38,14 @@
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
+				<version>3.0.1</version>
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
 						<Bundle-Activator>org.bundlebee.repository.impl.Activator</Bundle-Activator>
 						<Export-Package>org.bundlebee.repository.*,javax.servlet.*</Export-Package>
 						<Private-Package>org.osgi.impl.bundle.*,org.kxml2.*,org.xmlpull.*</Private-Package>
-						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 					</instructions>
 				</configuration>
 			</plugin>

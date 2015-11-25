@@ -54,7 +54,7 @@
                         <Bundle-Activator>org.bundlebee.bgbatch.impl.Activator</Bundle-Activator>
                         <Export-Package>org.bundlebee.bgbatch.*</Export-Package>
                         <Private-Package />
-                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                     </instructions>
                 </configuration>
             </plugin>

@@ -42,7 +42,7 @@
                         <Export-Package>org.bundlebee.examples.fractal.*</Export-Package>
                         <Import-Package>!javax.jnlp.*,!com.sun.java.swing.plaf.windows.*,*</Import-Package>
 						<Private-Package>org.jdesktop.swingworker.*,org.jdesktop.application.*,org.jdesktop.layout.*</Private-Package>                                                   
-                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>                             
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>                             
                         <Embed-Transitive>true</Embed-Transitive>
                         <Embed-Dependency>*;scope=compile|runtime;inline=true</Embed-Dependency>
                     </instructions>

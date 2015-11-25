@@ -29,7 +29,7 @@
                         <Bundle-Activator>org.bundlebee.examples.hello.Activator</Bundle-Activator>
                         <Export-Package>org.bundlebee.examples.hello.*</Export-Package>
                         <Private-Package />
-                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                     </instructions>
                 </configuration>
             </plugin>
