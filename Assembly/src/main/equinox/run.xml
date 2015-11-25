@@ -17,7 +17,7 @@
         and the hooks aren't registered :-( -hendrik
         see https://bugs.eclipse.org/bugs/show_bug.cgi?id=206611
         -->
-        <java jar="${equinox}/org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar" fork="true">
+        <java jar="${equinox}/launcher_1.0.0-v20070606.jar" fork="true">
             <arg value="-console"/>
             <arg value="-noExit"/>
             <!-- <arg value="-debug"/> -->

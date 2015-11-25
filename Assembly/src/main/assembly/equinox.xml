@@ -53,6 +53,7 @@
             <excludes>
                 <exclude>org.bundlebee:org.bundlebee.remoteservicecall:*</exclude>
                 <exclude>org.bundlebee:org.bundlebee.registry:*</exclude>
+                <exclude>org.bundlebee:org.bundlebee.assembly:*</exclude>                
                 <exclude>xmlpull:*</exclude>
                 <exclude>org.eclipse:osgi:*</exclude>
                 <exclude>org.apache.felix:org.osgi.service.obr:*</exclude>

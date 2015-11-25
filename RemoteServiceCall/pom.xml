@@ -19,6 +19,12 @@
             <groupId>org.eclipse.osgi</groupId>
             <artifactId>org.eclipse.osgi</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.testing.osgi-mock</artifactId>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>        
     </dependencies>
 </project>
 

@@ -1,10 +1,10 @@
 package org.bundlebee.testbundle.impl;
 
+import java.util.Hashtable;
 import org.bundlebee.testbundle.TestBundle;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-import java.util.Properties;
 import org.bundlebee.testbundle.cli.EchoCommand;
 import org.bundlebee.testbundle.cli.TestCommand;
 import org.eclipse.osgi.framework.console.CommandProvider;
@@ -17,7 +17,7 @@ import org.eclipse.osgi.framework.console.CommandProvider;
 public class Activator implements BundleActivator {
 
     public void start(final BundleContext context) throws Exception {
-        final Properties properties = new Properties();
+        final Hashtable<String, String> properties = new Hashtable<String,String>();
         final TestBundle testBundle = new TestBundleImpl();
         context.registerService(TestBundle.class.getName(), testBundle, properties);
         System.out.println("Starting BundleBee TestBundle ...\n");

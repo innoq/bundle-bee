@@ -20,7 +20,7 @@
     </licenses>
     <organization>
         <name>innoQ Deutschland GmbH</name>
-		<!--
+        <!--
         The actual organization URL is http://www.innoq.com/, but maven-bundle-plugin
         uses this as documentation URL, so we point to the project rather than the
         company. -hendrik
@@ -80,6 +80,7 @@
     </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jettyVersion>9.0.2.v20130417</jettyVersion>
     </properties>
     <issueManagement>
         <system>Redmine</system>
@@ -105,11 +106,11 @@
             </modules>
         </profile>
         <profile>
-			<!-- TODO need to be filled-->
+            <!-- TODO need to be filled-->
             <id>InstallDependencies</id>
         </profile>
         <profile>
-			<!-- TODO need to be fixed-->
+            <!-- TODO need to be fixed-->
             <id>integrationTest</id>
             <modules>
                 <module>IntegrationTest</module>
@@ -126,8 +127,14 @@
     <prerequisites>
         <maven>2.0.9</maven>
     </prerequisites>
-    <!--
+
     <repositories>
+        <repository>
+            <id>eclipse-mars</id>
+            <url>http://download.eclipse.org/releases/mars</url>
+            <layout>p2</layout>
+        </repository>
+        <!--
         <repository>
             <id>ops4j.releases</id>
             <url>http://repository.ops4j.org/maven2</url>
@@ -150,15 +157,18 @@
             <name>Sonatype Central Repository</name>
             <url>http://repository.sonatype.org/content/repositories/central</url>
         </repository>
+        -->
     </repositories>
     <pluginRepositories>
+        <!--
         <pluginRepository>
             <id>maven2-repository.dev.java.net</id>
             <name>Java.net Maven 2 Repository</name>
             <url>http://download.java.net/maven/2</url>
         </pluginRepository>
+        -->
     </pluginRepositories>
--->
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -168,7 +178,7 @@
     </dependencies>
     <dependencyManagement>
         <dependencies>
-			<!-- java 1.5 dependencies only -->
+            <!-- java 1.5 dependencies only -->
             <dependency>
                 <groupId>org.jdesktop</groupId>
                 <artifactId>appframework</artifactId>
@@ -179,14 +189,14 @@
                 <artifactId>swing-layout</artifactId>
                 <version>1.0.2</version>
             </dependency>
-			<!-- test dependencies only -->
+            <!-- test dependencies only -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.5</version>
                 <scope>test</scope>
             </dependency>
-			<!-- other dependencies -->
+            <!-- other dependencies -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>com.springsource.slf4j.api</artifactId>
@@ -222,7 +232,8 @@
                 <artifactId>com.springsource.ch.qos.logback.classic</artifactId>
                 <version>0.9.9</version>
             </dependency>
-			<!-- dependencies needed to build ready-to-go equinox assembly -->
+            <!-- dependencies needed to build ready-to-go equinox assembly -->
+            <!--
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet</artifactId>
@@ -263,11 +274,47 @@
                 <artifactId>bindex</artifactId>
                 <version>2.2</version>
             </dependency>
+            -->
+            <dependency>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bndlib</artifactId>
+                <version>2.4.0</version>
+            </dependency>  
+            <dependency>
+                <groupId>org.eclipse.equinox</groupId>
+                <artifactId>launcher</artifactId>
+                <version>1.0.0-v20070606</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.osgi</groupId>
+                <artifactId>org.eclipse.osgi.services</artifactId>
+                <version>3.2.100.v20100503</version>
+            </dependency>            
+            <dependency>
+                <groupId>org.eclipse.osgi</groupId>
+                <artifactId>org.eclipse.osgi</artifactId>
+                <version>3.7.1</version>
+            </dependency>        
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.testing.osgi-mock</artifactId>
+                <version>1.7.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-server</artifactId>
+                <version>${jettyVersion}</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>org.apache.felix.bundlerepository</artifactId>
                 <version>1.2.1</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.0.1</version>
+            </dependency>       
         </dependencies>
     </dependencyManagement>
     <build>
